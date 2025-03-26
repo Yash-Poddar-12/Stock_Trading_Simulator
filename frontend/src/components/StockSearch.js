@@ -21,7 +21,7 @@ const StockSearch = () => {
 
   return (
     <Box sx={{ p: 2, mt: 2 }}>
-      <Typography variant="h6" gutterBottom sx={{ color: "#fff" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "#f0f0f0" }}>
         Stock Search
       </Typography>
       <TextField
@@ -30,8 +30,8 @@ const StockSearch = () => {
         onChange={(e) => setSymbol(e.target.value)}
         fullWidth
         margin="normal"
-        InputProps={{ style: { color: '#fff' } }}
-        InputLabelProps={{ style: { color: '#fff' } }}
+        InputProps={{ style: { color: '#f0f0f0' } }}
+        InputLabelProps={{ style: { color: '#f0f0f0' } }}
       />
       <Button variant="contained" onClick={handleSearch}>
         Search
@@ -46,10 +46,10 @@ const StockSearch = () => {
           sx={{
             p: 2,
             mt: 2,
-            border: '2px solid #1976d2',
+            border: '2px solid #8a4fff',
             textAlign: 'center',
-            backgroundColor: "#1E1E1E",
-            color: "#fff",
+            backgroundColor: "#1e1e1e",
+            color: "#f0f0f0",
           }}
         >
           <Typography variant="subtitle1">{stockData.symbol}</Typography>

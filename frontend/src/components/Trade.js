@@ -25,8 +25,8 @@ const Trade = ({ refreshUserData }) => {
   };
 
   return (
-    <Box sx={{ p: 2, bgcolor: 'grey.900', borderRadius: 2, mt: 2 }}>
-      <Typography variant="h6" gutterBottom sx={{ color: '#fff' }}>
+    <Box sx={{ p: 2, bgcolor: '#1e1e1e', borderRadius: 2, mt: 2 }}>
+      <Typography variant="h6" gutterBottom sx={{ color: '#f0f0f0' }}>
         Make a Trade
       </Typography>
       <TextField
@@ -35,8 +35,8 @@ const Trade = ({ refreshUserData }) => {
         onChange={onChange}
         fullWidth
         margin="normal"
-        InputProps={{ style: { color: '#fff' } }}
-        InputLabelProps={{ style: { color: '#fff' } }}
+        InputProps={{ style: { color: '#f0f0f0' } }}
+        InputLabelProps={{ style: { color: '#f0f0f0' } }}
       />
       <TextField
         label="Quantity"
@@ -44,8 +44,8 @@ const Trade = ({ refreshUserData }) => {
         onChange={onChange}
         fullWidth
         margin="normal"
-        InputProps={{ style: { color: '#fff' } }}
-        InputLabelProps={{ style: { color: '#fff' } }}
+        InputProps={{ style: { color: '#f0f0f0' } }}
+        InputLabelProps={{ style: { color: '#f0f0f0' } }}
       />
       <TextField
         label="Price per Share"
@@ -53,8 +53,8 @@ const Trade = ({ refreshUserData }) => {
         onChange={onChange}
         fullWidth
         margin="normal"
-        InputProps={{ style: { color: '#fff' } }}
-        InputLabelProps={{ style: { color: '#fff' } }}
+        InputProps={{ style: { color: '#f0f0f0' } }}
+        InputLabelProps={{ style: { color: '#f0f0f0' } }}
       />
       <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
         <Button variant="contained" color="success" onClick={() => handleTrade('buy')}>
@@ -65,7 +65,7 @@ const Trade = ({ refreshUserData }) => {
         </Button>
       </Box>
       {message && (
-        <Typography sx={{ mt: 2, color: '#fff' }}>
+        <Typography sx={{ mt: 2, color: '#f0f0f0' }}>
           {message}
         </Typography>
       )}

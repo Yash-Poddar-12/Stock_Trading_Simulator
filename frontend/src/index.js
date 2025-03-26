@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css'; // Global styles (e.g., reset, font imports)
+import './index.css'; // Global CSS (e.g., reset, scrollbar styling)
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);

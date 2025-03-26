@@ -33,10 +33,10 @@ const DefaultStockList = () => {
 
   return (
     <Box sx={{ mt: 4 }}>
-      <Typography variant="h6" gutterBottom sx={{ color: "#fff" }}>
+      <Typography variant="h6" gutterBottom sx={{ color: "#f0f0f0" }}>
         Default Stocks
       </Typography>
-      {stockDataList.length === 5 && (
+      {stockDataList.length === 5 ? (
         <>
           {/* First Row: 3 stocks */}
           <Grid container spacing={2} sx={{ mb: 2 }}>
@@ -46,10 +46,10 @@ const DefaultStockList = () => {
                   sx={{
                     p: 2,
                     textAlign: "center",
-                    backgroundColor: "#1E1E1E",
-                    color: "#fff",
+                    backgroundColor: "#1e1e1e",
+                    color: "#f0f0f0",
                     borderRadius: 2,
-                    border: "2px solid #1976d2", // Blue border
+                    border: "2px solid #8a4fff",
                   }}
                 >
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
@@ -73,10 +73,10 @@ const DefaultStockList = () => {
                   sx={{
                     p: 2,
                     textAlign: "center",
-                    backgroundColor: "#1E1E1E",
-                    color: "#fff",
+                    backgroundColor: "#1e1e1e",
+                    color: "#f0f0f0",
                     borderRadius: 2,
-                    border: "2px solid #1976d2", // Blue border
+                    border: "2px solid #8a4fff",
                   }}
                 >
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
@@ -93,9 +93,8 @@ const DefaultStockList = () => {
             ))}
           </Grid>
         </>
-      )}
-      {stockDataList.length !== 5 && !error && (
-        <Typography sx={{ color: "#fff" }}>Loading default stocks...</Typography>
+      ) : (
+        <Typography sx={{ color: "#f0f0f0" }}>Loading default stocks...</Typography>
       )}
     </Box>
   );

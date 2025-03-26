@@ -11,7 +11,7 @@ const WelcomePage = () => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #000000, #121212)',
+        background: 'linear-gradient(135deg, #121212, #1a1a2e)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -26,10 +26,10 @@ const WelcomePage = () => {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h3" gutterBottom sx={{ color: '#fff' }}>
-          STOCKTRADE
+        <Typography variant="h3" gutterBottom sx={{ color: '#f0f0f0', fontWeight: '700' }}>
+          StockVista
         </Typography>
-        <Typography variant="h6" gutterBottom sx={{ color: '#fff' }}>
+        <Typography variant="h6" gutterBottom sx={{ color: '#f0f0f0' }}>
           Your Trading Journey Begins Here
         </Typography>
         <Box sx={{ mt: 4 }}>

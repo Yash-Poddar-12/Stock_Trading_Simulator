@@ -13,6 +13,7 @@ import {
   Grid,
   Paper,
 } from '@mui/material';
+import { keyframes } from '@mui/system';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -20,11 +21,16 @@ import Trade from '../components/Trade';
 import StockSearch from '../components/StockSearch';
 import DefaultStockList from '../components/DefaultStockList';
 
+// Define pulse animation for the balance section background
+const pulse = keyframes`
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+`;
+
 const Dashboard = () => {
   const [userData, setUserData] = useState({ balance: 0, portfolio: [] });
   const token = localStorage.getItem('token');
   const navigate = useNavigate();
-
   const [anchorEl, setAnchorEl] = useState(null);
   const menuOpen = Boolean(anchorEl);
 
@@ -60,41 +66,107 @@ const Dashboard = () => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #000000, #121212)',
+        background: 'linear-gradient(135deg, #121212 0%, #1a1a2e 100%)',
         overflowX: 'hidden',
       }}
     >
-      <AppBar position="static" sx={{ backgroundColor: '#1976d2', boxShadow: 3 }}>
-        <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', color: '#fff' }}>
-            StockTrade Dashboard
+      {/* Neon Navbar */}
+      <AppBar
+        position="sticky"
+        sx={{
+          backgroundColor: 'rgba(30, 30, 30, 0.8)',
+          backdropFilter: 'blur(15px)',
+          padding: '15px 5%',
+          boxShadow: '0 4px 6px rgba(138,79,255,0.1)',
+        }}
+      >
+        <Toolbar disableGutters>
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+              fontWeight: '700',
+              fontSize: '1.8em',
+              background: 'linear-gradient(45deg, #00ffff, #8a4fff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 10px rgba(0,255,255,0.3)',
+            }}
+          >
+            StockVista
           </Typography>
-          <IconButton size="large" edge="end" color="inherit" onClick={handleProfileMenuOpen}>
-            <AccountCircle sx={{ color: '#fff' }} />
-          </IconButton>
-          <Menu anchorEl={anchorEl} open={menuOpen} onClose={handleMenuClose}>
-            <MenuItem onClick={handleLogout}>Logout</MenuItem>
-          </Menu>
+          <Box sx={{ position: 'relative' }}>
+            <IconButton
+              onClick={handleProfileMenuOpen}
+              sx={{
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                border: '2px solid #8a4fff',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  transform: 'scale(1.1)',
+                  boxShadow: '0 0 15px #8a4fff',
+                },
+              }}
+            >
+              <AccountCircle sx={{ fontSize: '40px', color: '#fff' }} />
+            </IconButton>
+            <Menu anchorEl={anchorEl} open={menuOpen} onClose={handleMenuClose}>
+              <MenuItem onClick={handleLogout}>
+                <i className="fas fa-sign-out-alt" style={{ marginRight: '8px' }}></i> Logout
+              </MenuItem>
+            </Menu>
+          </Box>
         </Toolbar>
       </AppBar>
 
-      <Container
-        maxWidth="md"
-        sx={{
-          mt: 4,
-          bgcolor: '#121212',
-          borderRadius: 2,
-          p: 4,
-          boxShadow: 3,
-        }}
-      >
-        <Typography variant="h5" gutterBottom sx={{ color: '#fff' }}>
-          Balance: ${userData.balance}
-        </Typography>
+      <Container maxWidth="md" sx={{ mt: 4 }}>
+        {/* Balance Section */}
+        <Box
+          className="balance-section"
+          sx={{
+            background: 'linear-gradient(145deg, #1e1e1e, #2a2a3a)',
+            borderRadius: '20px',
+            p: 3,
+            textAlign: 'center',
+            mb: 3,
+            boxShadow:
+              '0 10px 30px rgba(138,79,255,0.1), inset 0 0 20px rgba(138,79,255,0.1)',
+            position: 'relative',
+            overflow: 'hidden',
+            '&::before': {
+              content: '""',
+              position: 'absolute',
+              top: '-50%',
+              left: '-50%',
+              width: '200%',
+              height: '200%',
+              background: 'radial-gradient(circle at center, rgba(138,79,255,0.1), transparent 70%)',
+              animation: `${pulse} 5s infinite alternate`,
+            },
+          }}
+        >
+          <Typography variant="h4" sx={{ color: '#fff', mb: 1 }}>
+            Available Balance
+          </Typography>
+          <Typography
+            id="account-balance"
+            sx={{
+              fontSize: '3em',
+              background: 'linear-gradient(45deg, #00ffff, #8a4fff)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 0 15px rgba(0,255,255,0.3)',
+            }}
+          >
+            ${userData.balance}
+          </Typography>
+        </Box>
 
         {/* Portfolio Section */}
-        <Box sx={{ mt: 2 }}>
-          <Typography variant="h6" gutterBottom sx={{ color: '#fff' }}>
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="h6" sx={{ color: '#fff', mb: 2 }}>
             Your Portfolio
           </Typography>
           {userData.portfolio.length === 0 ? (
@@ -106,26 +178,31 @@ const Dashboard = () => {
                   <Paper
                     sx={{
                       p: 2,
-                      textAlign: "center",
-                      backgroundColor: "#1E1E1E",
-                      color: "#fff",
-                      borderRadius: 2,
-                      border: "2px solid #1976d2", // Blue border
+                      textAlign: 'center',
+                      background: 'linear-gradient(145deg, #1e1e2a, #2a2a3a)',
+                      borderRadius: '15px',
+                      transition: 'all 0.3s ease',
+                      border: '1px solid rgba(138,79,255,0.1)',
+                      '&:hover': {
+                        transform: 'translateY(-10px)',
+                        boxShadow: '0 15px 30px rgba(138,79,255,0.2), 0 0 20px rgba(0,255,255,0.1)',
+                      },
+                      color: '#fff',
                     }}
                   >
-                    <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
+                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                       {item.symbol}
                     </Typography>
-                    <Typography sx={{ fontSize: "1.1rem", mt: 1 }}>
-                      Quantity: {item.quantity}
+                    <Typography sx={{ fontSize: '1.1rem', mt: 1 }}>
+                      Qty: {item.quantity}
                     </Typography>
                     {item.priceBought && (
-                      <Typography sx={{ fontSize: "0.9rem", mt: 1 }}>
+                      <Typography sx={{ fontSize: '0.9rem', mt: 1 }}>
                         Bought at: ${item.priceBought}
                       </Typography>
                     )}
                     {item.change && (
-                      <Typography sx={{ fontSize: "0.9rem", mt: 1 }}>
+                      <Typography sx={{ fontSize: '0.9rem', mt: 1 }}>
                         Change: {item.change}
                       </Typography>
                     )}
@@ -136,16 +213,19 @@ const Dashboard = () => {
           )}
         </Box>
 
-        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
+        <Divider sx={{ my: 3, borderColor: '#8a4fff' }} />
 
+        {/* Default Stocks Section */}
         <DefaultStockList />
 
-        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
+        <Divider sx={{ my: 3, borderColor: '#8a4fff' }} />
 
-        <Trade refreshUserData={refreshUserData} />
+        {/* Trade Section */}
+        <Trade refreshUserData={() => refreshUserData()} />
 
-        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
+        <Divider sx={{ my: 3, borderColor: '#8a4fff' }} />
 
+        {/* Stock Search Section */}
         <StockSearch />
       </Container>
     </Box>

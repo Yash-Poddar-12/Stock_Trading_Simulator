@@ -66,7 +66,7 @@ const RegisterPage = ({ setAuth }) => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #000000, #121212)',
+        background: 'linear-gradient(135deg, #121212, #1a1a2e)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -97,10 +97,10 @@ const RegisterPage = ({ setAuth }) => {
           zIndex: 1,
         }}
       >
-        <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
-          STOCKTRADE
+        <Typography variant="h4" gutterBottom sx={{ color: '#f0f0f0', fontWeight: '700' }}>
+          StockVista
         </Typography>
-        <Typography variant="body1" gutterBottom sx={{ color: '#fff' }}>
+        <Typography variant="body1" gutterBottom sx={{ color: '#f0f0f0' }}>
           Create Your Account
         </Typography>
         {error && (
@@ -116,8 +116,8 @@ const RegisterPage = ({ setAuth }) => {
             margin="normal"
             onChange={handleChange}
             required
-            InputProps={{ style: { color: '#fff' } }}
-            InputLabelProps={{ style: { color: '#fff' } }}
+            InputProps={{ style: { color: '#f0f0f0' } }}
+            InputLabelProps={{ style: { color: '#f0f0f0' } }}
           />
           <TextField
             fullWidth
@@ -127,8 +127,8 @@ const RegisterPage = ({ setAuth }) => {
             margin="normal"
             onChange={handleChange}
             required
-            InputProps={{ style: { color: '#fff' } }}
-            InputLabelProps={{ style: { color: '#fff' } }}
+            InputProps={{ style: { color: '#f0f0f0' } }}
+            InputLabelProps={{ style: { color: '#f0f0f0' } }}
           />
           <TextField
             fullWidth
@@ -140,15 +140,15 @@ const RegisterPage = ({ setAuth }) => {
             required
             onFocus={() => setIsPasswordFocused(true)}
             onBlur={() => setIsPasswordFocused(false)}
-            InputProps={{ style: { color: '#fff' } }}
-            InputLabelProps={{ style: { color: '#fff' } }}
+            InputProps={{ style: { color: '#f0f0f0' } }}
+            InputLabelProps={{ style: { color: '#f0f0f0' } }}
           />
           <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
             Register
           </Button>
         </Box>
         <Box sx={{ mt: 2 }}>
-          <Typography variant="body2" sx={{ color: '#fff' }}>
+          <Typography variant="body2" sx={{ color: '#f0f0f0' }}>
             Already have an account?{' '}
             <Link href="/login" underline="hover" sx={{ color: '#1976d2' }}>
               Login
