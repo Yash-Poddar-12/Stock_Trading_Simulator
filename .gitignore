@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Node Modules
+node_modules/
+
+# Build and Dist
+dist/
+build/
+.cache/
+
+# Environment Files
+.env
+.env.*  # If you have multiple env files (e.g. .env.production)
+
+# Production
+*.env.production
+*.env.local
+
+# Editor Directories and Files
+.idea/
+.vscode/
+*.swp
+
+# React (Frontend) Artifacts
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Backend Node Modules
+backend/node_modules/
+
+# Optional coverage reports
+coverage/
+
+# Optional lock files if you prefer to only keep one
+package-lock.json
+yarn.lock
+
+# Optional if using Docker
+docker-compose.yml
+Dockerfile
