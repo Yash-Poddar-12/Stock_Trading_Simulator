@@ -66,7 +66,7 @@ const RegisterPage = ({ setAuth }) => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #74ebd5, #ACB6E5)',
+        background: 'linear-gradient(to right, #000000, #121212)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -90,17 +90,17 @@ const RegisterPage = ({ setAuth }) => {
       <Container
         maxWidth="sm"
         sx={{
-          bgcolor: 'rgba(255, 255, 255, 0.9)',
+          bgcolor: 'rgba(18, 18, 18, 0.95)',
           p: 4,
           borderRadius: 2,
           textAlign: 'center',
           zIndex: 1,
         }}
       >
-        <Typography variant="h4" gutterBottom>
+        <Typography variant="h4" gutterBottom sx={{ color: '#fff' }}>
           STOCKTRADE
         </Typography>
-        <Typography variant="body1" gutterBottom>
+        <Typography variant="body1" gutterBottom sx={{ color: '#fff' }}>
           Create Your Account
         </Typography>
         {error && (
@@ -116,6 +116,8 @@ const RegisterPage = ({ setAuth }) => {
             margin="normal"
             onChange={handleChange}
             required
+            InputProps={{ style: { color: '#fff' } }}
+            InputLabelProps={{ style: { color: '#fff' } }}
           />
           <TextField
             fullWidth
@@ -125,6 +127,8 @@ const RegisterPage = ({ setAuth }) => {
             margin="normal"
             onChange={handleChange}
             required
+            InputProps={{ style: { color: '#fff' } }}
+            InputLabelProps={{ style: { color: '#fff' } }}
           />
           <TextField
             fullWidth
@@ -136,15 +140,17 @@ const RegisterPage = ({ setAuth }) => {
             required
             onFocus={() => setIsPasswordFocused(true)}
             onBlur={() => setIsPasswordFocused(false)}
+            InputProps={{ style: { color: '#fff' } }}
+            InputLabelProps={{ style: { color: '#fff' } }}
           />
           <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
             Register
           </Button>
         </Box>
         <Box sx={{ mt: 2 }}>
-          <Typography variant="body2">
+          <Typography variant="body2" sx={{ color: '#fff' }}>
             Already have an account?{' '}
-            <Link href="/login" underline="hover">
+            <Link href="/login" underline="hover" sx={{ color: '#1976d2' }}>
               Login
             </Link>
           </Typography>

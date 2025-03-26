@@ -10,16 +10,24 @@ import Dashboard from './pages/Dashboard';
 function App() {
   const [isAuthenticated, setAuth] = useState(!!localStorage.getItem("token"));
 
+  // Dark theme configuration
   const theme = useMemo(
     () =>
       createTheme({
         palette: {
-          mode: 'light',
-          primary: { main: '#1976d2' },
-          background: { default: '#f5f5f5', paper: '#fff' },
+          mode: 'dark',
+          primary: { main: '#0d47a1' }, // dark blue primary
+          background: {
+            default: '#000000', // true black background
+            paper: '#121212',   // slightly lighter for cards
+          },
+          text: {
+            primary: '#ffffff', // white text
+            secondary: '#bbbbbb',
+          },
         },
         typography: {
-          fontFamily: '"Poppins", sans-serif',
+          fontFamily: '"Poppins", sans-serif', // Use a modern font like Poppins
         },
       }),
     []

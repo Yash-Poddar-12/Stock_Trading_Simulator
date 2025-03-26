@@ -60,17 +60,17 @@ const Dashboard = () => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #74ebd5, #ACB6E5)',
+        background: 'linear-gradient(to right, #000000, #121212)',
         overflowX: 'hidden',
       }}
     >
       <AppBar position="static" sx={{ backgroundColor: '#1976d2', boxShadow: 3 }}>
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold' }}>
+          <Typography variant="h6" sx={{ flexGrow: 1, fontWeight: 'bold', color: '#fff' }}>
             StockTrade Dashboard
           </Typography>
           <IconButton size="large" edge="end" color="inherit" onClick={handleProfileMenuOpen}>
-            <AccountCircle />
+            <AccountCircle sx={{ color: '#fff' }} />
           </IconButton>
           <Menu anchorEl={anchorEl} open={menuOpen} onClose={handleMenuClose}>
             <MenuItem onClick={handleLogout}>Logout</MenuItem>
@@ -82,23 +82,23 @@ const Dashboard = () => {
         maxWidth="md"
         sx={{
           mt: 4,
-          bgcolor: 'background.paper',
+          bgcolor: '#121212',
           borderRadius: 2,
           p: 4,
           boxShadow: 3,
         }}
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom sx={{ color: '#fff' }}>
           Balance: ${userData.balance}
         </Typography>
 
         {/* Portfolio Section */}
         <Box sx={{ mt: 2 }}>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom sx={{ color: '#fff' }}>
             Your Portfolio
           </Typography>
           {userData.portfolio.length === 0 ? (
-            <Typography>No holdings yet.</Typography>
+            <Typography sx={{ color: '#fff' }}>No holdings yet.</Typography>
           ) : (
             <Grid container spacing={2}>
               {userData.portfolio.map((item, index) => (
@@ -110,6 +110,7 @@ const Dashboard = () => {
                       backgroundColor: "#1E1E1E",
                       color: "#fff",
                       borderRadius: 2,
+                      border: "2px solid #1976d2", // Blue border
                     }}
                   >
                     <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
@@ -123,7 +124,6 @@ const Dashboard = () => {
                         Bought at: ${item.priceBought}
                       </Typography>
                     )}
-                    {/* If you have a change field for portfolio items, show it */}
                     {item.change && (
                       <Typography sx={{ fontSize: "0.9rem", mt: 1 }}>
                         Change: {item.change}
@@ -136,15 +136,15 @@ const Dashboard = () => {
           )}
         </Box>
 
-        <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
 
         <DefaultStockList />
 
-        <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
 
         <Trade refreshUserData={refreshUserData} />
 
-        <Divider sx={{ my: 3 }} />
+        <Divider sx={{ my: 3, borderColor: '#1976d2' }} />
 
         <StockSearch />
       </Container>

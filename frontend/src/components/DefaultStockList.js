@@ -33,7 +33,7 @@ const DefaultStockList = () => {
 
   return (
     <Box sx={{ mt: 4 }}>
-      <Typography variant="h6" gutterBottom>
+      <Typography variant="h6" gutterBottom sx={{ color: "#fff" }}>
         Default Stocks
       </Typography>
       {stockDataList.length === 5 && (
@@ -46,9 +46,10 @@ const DefaultStockList = () => {
                   sx={{
                     p: 2,
                     textAlign: "center",
-                    backgroundColor: "#1E1E1E", // black card
+                    backgroundColor: "#1E1E1E",
                     color: "#fff",
                     borderRadius: 2,
+                    border: "2px solid #1976d2", // Blue border
                   }}
                 >
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
@@ -75,6 +76,7 @@ const DefaultStockList = () => {
                     backgroundColor: "#1E1E1E",
                     color: "#fff",
                     borderRadius: 2,
+                    border: "2px solid #1976d2", // Blue border
                   }}
                 >
                   <Typography variant="subtitle1" sx={{ fontWeight: "bold" }}>
@@ -93,7 +95,7 @@ const DefaultStockList = () => {
         </>
       )}
       {stockDataList.length !== 5 && !error && (
-        <Typography>Loading default stocks...</Typography>
+        <Typography sx={{ color: "#fff" }}>Loading default stocks...</Typography>
       )}
     </Box>
   );

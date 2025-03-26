@@ -11,7 +11,7 @@ const WelcomePage = () => {
       sx={{
         minHeight: '100vh',
         width: '100vw',
-        background: 'linear-gradient(to right, #74ebd5, #ACB6E5)',
+        background: 'linear-gradient(to right, #000000, #121212)',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -20,16 +20,16 @@ const WelcomePage = () => {
       <Container
         maxWidth="sm"
         sx={{
-          bgcolor: 'rgba(255, 255, 255, 0.9)',
+          bgcolor: 'rgba(18, 18, 18, 0.95)',
           p: 4,
           borderRadius: 2,
           textAlign: 'center',
         }}
       >
-        <Typography variant="h3" gutterBottom>
+        <Typography variant="h3" gutterBottom sx={{ color: '#fff' }}>
           STOCKTRADE
         </Typography>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ color: '#fff' }}>
           Your Trading Journey Begins Here
         </Typography>
         <Box sx={{ mt: 4 }}>
